@@ -1,0 +1,39 @@
+{
+  "name": "pixejada-api-rest",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^9.1.7",
+    "@prisma/client": "^4.5.0",
+    "@tailwindcss/forms": "^0.5.3",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.24",
+    "@types/react-dom": "18.0.8",
+    "bson": "^4.7.0",
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.1",
+    "firebase": "^9.13.0",
+    "formik": "^2.2.9",
+    "next": "13.0.1",
+    "prisma-erd-generator": "^1.2.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-number-format": "^5.1.1",
+    "react-toastify": "^9.1.1",
+    "typescript": "4.8.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.18",
+    "prisma": "^4.5.0",
+    "tailwindcss": "^3.2.1"
+  }
+}

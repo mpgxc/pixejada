@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+  theme    = "neutral"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Ticket {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  title        String  @unique
+  slug         String  @unique
+  priceInCents Int
+  image        String?
+
+  Purchases Purchase[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tickets")
+}
+
+model Purchase {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  quantity          Int
+  totalPriceInCents Int
+
+  ticketId String? @db.ObjectId
+  Ticket   Ticket? @relation(fields: [ticketId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("purchases")
+}
