@@ -6,13 +6,19 @@ const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<Ticket | Ticket[]>
 ) => {
+  const convertStringCurrencyToDecimal = (value: string) => {
+    const currencyInCents = Number(value.replace(/\./g, "").replace(",", "."));
+
+    return Math.round(currencyInCents * 100);
+  };
+
   switch (req.method) {
     case "POST":
       const values = req.body;
 
       const ticket = await createTicket({
         title: values.title,
-        value: Number(values.value),
+        value: convertStringCurrencyToDecimal(values.value),
         image: values.image,
       });
 

@@ -13,7 +13,7 @@ async function createTicket(data: TicketInput): Promise<Ticket> {
   return repository.ticket.create({
     data: {
       id: new ObjectId().toHexString(),
-      priceInCents: data.value * 100,
+      priceInCents: data.value,
       slug: data.title.replace(/\s/g, "-").toLowerCase(),
       title: data.title,
       image: data.image,

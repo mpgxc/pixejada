@@ -8,8 +8,6 @@ import { StorageFilesProvider } from "../lib/storage";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { createTicket } from "../lib/repository";
-
 type FormValues = {
   title: string;
   value: string;
@@ -55,6 +53,9 @@ export default function Home() {
     },
     [formik]
   );
+
+  const PREVIEW_CONTENT =
+    process.env.NEXT_PUBLIC_FIREBASE_BUCKET_PREVIEW_CONTENT;
 
   const formatCurrency = useCallback(
     ({ target }: React.ChangeEvent<HTMLInputElement>) => {
@@ -180,6 +181,15 @@ export default function Home() {
           </Form>
         </FormikProvider>
       </main>
+
+      <section>
+        <Image
+          src="https://firebasestorage.googleapis.com/v0/b/pixejada.appspot.com/o/images%2F3805fff8-bdb7-49fc-92fe-e3f55fed9c38.jpg?alt=media"
+          width={300}
+          height={200}
+          alt="Picture of the author"
+        />
+      </section>
       <ToastContainer />
     </div>
   );
