@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Ticket } from "@prisma/client";
 import { createTicket, listTickets } from "../../lib/repository";
+import { allowCors } from "../../lib/cors";
 
 const handler = async (
   req: NextApiRequest,
@@ -35,4 +36,4 @@ const handler = async (
   }
 };
 
-export default handler;
+export default allowCors(handler);
